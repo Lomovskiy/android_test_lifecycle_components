@@ -17,4 +17,13 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/field"
+        android:text="To FragmentB"
+        android:textAllCaps="false"
+        />
+
 </RelativeLayout>

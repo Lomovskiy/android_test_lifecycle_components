@@ -12,15 +12,17 @@ import androidx.fragment.app.FragmentManager
 
 class App : Application() {
 
-    private val _tagActivityLC = "ActivityLC"
-    private val _tagFragmentLC = "FragmentLC"
+    companion object {
+        const val tagActivityLC = "ActivityLC"
+        private val _tagFragmentLC = "FragmentLC"
+    }
 
     override fun onCreate() {
         super.onCreate()
         registerActivityLifecycleCallbacks(object : ActivityLifecycleCallbacks {
 
             override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
-                Log.d(_tagActivityLC, "onActivityCreated($activity, $savedInstanceState)")
+                Log.d(tagActivityLC, "onActivityCreated($activity, $savedInstanceState)")
                 if (activity is FragmentActivity) {
                     activity.supportFragmentManager.registerFragmentLifecycleCallbacks(
                         object : FragmentManager.FragmentLifecycleCallbacks() {
@@ -132,27 +134,27 @@ class App : Application() {
             }
 
             override fun onActivityStarted(activity: Activity) {
-                Log.d(_tagActivityLC, "onActivityStarted($activity)")
+                Log.d(tagActivityLC, "onActivityStarted($activity)")
             }
 
             override fun onActivityResumed(activity: Activity) {
-                Log.d(_tagActivityLC, "onActivityResumed($activity)")
+                Log.d(tagActivityLC, "onActivityResumed($activity)")
             }
 
             override fun onActivityPaused(activity: Activity) {
-                Log.d(_tagActivityLC, "onActivityPaused($activity)")
+                Log.d(tagActivityLC, "onActivityPaused($activity)")
             }
 
             override fun onActivityStopped(activity: Activity) {
-                Log.d(_tagActivityLC, "onActivityStopped($activity)")
+                Log.d(tagActivityLC, "onActivityStopped($activity)")
             }
 
             override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) {
-                Log.d(_tagActivityLC, "onActivitySaveInstanceState($activity, $outState)")
+                Log.d(tagActivityLC, "onActivitySaveInstanceState($activity, $outState)")
             }
 
             override fun onActivityDestroyed(activity: Activity) {
-                Log.d(_tagActivityLC, "onActivityDestroyed($activity)")
+                Log.d(tagActivityLC, "onActivityDestroyed($activity)")
             }
 
         })

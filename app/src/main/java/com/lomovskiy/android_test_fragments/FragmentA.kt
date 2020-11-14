@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputLayout
 
@@ -15,6 +16,15 @@ class FragmentA : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_a, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        with(view.findViewById(R.id.button) as Button) {
+            setOnClickListener {
+                sendNavMessage(OpenFragmentB)
+            }
+        }
     }
 
 }
