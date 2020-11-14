@@ -2,6 +2,7 @@ package com.lomovskiy.android_test_fragments
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 
@@ -47,6 +48,11 @@ class MainActivity : AppCompatActivity(), NavRouter {
         if (savedInstanceState == null) {
             handleMessage(OpenFragmentA)
         }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+        super.onCreate(savedInstanceState, persistentState)
+        Log.d(App.tagActivityLC, "onCreate($savedInstanceState, $persistentState)")
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
