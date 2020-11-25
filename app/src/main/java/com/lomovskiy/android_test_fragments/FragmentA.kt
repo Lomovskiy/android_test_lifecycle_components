@@ -25,6 +25,9 @@ class FragmentA : Fragment() {
                 sendNavMessage(OpenFragmentB)
             }
         }
+        view.findViewById<Button>(R.id.button_tab_activity).setOnClickListener {
+            sendNavMessage(OpenTabActivity)
+        }
     }
 
 }

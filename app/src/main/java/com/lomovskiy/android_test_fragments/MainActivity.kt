@@ -1,10 +1,12 @@
 package com.lomovskiy.android_test_fragments
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
 import androidx.fragment.app.Fragment
+import com.lomovskiy.android_test_fragments.tab.TabActivity
 
 interface NavMessage
 
@@ -15,6 +17,7 @@ interface NavRouter {
 object Back : NavMessage
 object OpenFragmentA : NavMessage
 object OpenFragmentB : NavMessage
+object OpenTabActivity : NavMessage
 
 inline fun Fragment.sendNavMessage(navMessage: NavMessage) {
     (requireActivity() as NavRouter).handleMessage(navMessage)
@@ -40,6 +43,9 @@ class MainActivity : AppCompatActivity(), NavRouter {
                     .replace(android.R.id.content, FragmentB(), FragmentB::class.java.name)
                     .addToBackStack(FragmentB::class.java.name)
                     .commit()
+            }
+            OpenTabActivity -> {
+                startActivity(Intent(this, TabActivity::class.java))
             }
         }
     }
